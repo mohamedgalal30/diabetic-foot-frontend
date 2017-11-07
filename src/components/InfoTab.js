@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function InfoTab() {
+export default function InfoTab({ patient, onSave, onChange }) {
+    let { name, age, gender, address, phone, job } = patient;
     return (
         <div className="col s12  carousel-item " id="tab1">
             <div className="container">
@@ -8,12 +9,12 @@ export default function InfoTab() {
                 <div className="row">
                     <div className="input-field col s8">
                         <label htmlFor="nameP" className=" white-text">Patient Name</label>
-                        <input type="text" id="nameP" required />
+                        <input value={name} onChange={(e)=>onChange(e,'info')} name="name" required />
                     </div>
 
                     <div className="input-field col s8">
                         <label htmlFor="ageP" className=" white-text">Patient Age</label>
-                        <input type="number" id="ageP" required />
+                        <input type="number" onChange={(e)=>onChange(e,'info')} value={age} name="age" required />
                     </div>
                     <div className="col s8">
                         <div className="row">
@@ -30,21 +31,21 @@ export default function InfoTab() {
 
                     <div className="input-field col s8">
                         <label htmlFor="AddressP" className=" white-text">Patient Address</label>
-                        <input type="text" id="AddresssP" required />
+                        <input value={address} onChange={(e)=>onChange(e,'info')} name="address" required />
                     </div>
 
                     <div className="input-field col s8">
                         <label htmlFor="telP" className=" white-text">Patient Phone</label>
-                        <input type="tel" id="telP" required />
+                        <input value={phone} onChange={(e)=>onChange(e,'info')} type="tel" name="phone" required />
                     </div>
 
                     <div className="input-field col s8">
                         <label htmlFor="JobP" className=" white-text">Patient Job</label>
-                        <input type="text" id="JobP" required />
+                        <input value={job} onChange={(e)=>onChange(e,'info')} name="job" required />
                     </div>
 
                     <div className="col s4">
-                        <button className="btn waves-effect waves-red" id="btn1" onClick="nt1()" type="submit">Next</button>
+                        <button className="btn waves-effect waves-red" id="btn1" onClick={onSave} type="submit">Next</button>
                     </div>
                 </div>
             </div>
