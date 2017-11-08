@@ -4,6 +4,17 @@ import PatientForm from './PatientForm'
 import InfoTab from './InfoTab'
 import HistoryTab from './HistoryTab'
 
+function index(obj, is, value) {
+  if (typeof is == 'string')
+    return index(obj, is.split('.'), value);
+  else if (is.length == 1 && value !== undefined)
+    return obj[is[0]] = value;
+  else if (is.length == 0)
+    return obj;
+  else
+    return index(obj[is[0]] || { [is[0]]: {} }, is.slice(1), value);
+}
+
 class UpdatePatientPage extends React.Component {
 
   constructor(props) {
@@ -11,6 +22,56 @@ class UpdatePatientPage extends React.Component {
     this.state = {
       patient: {
         info: { name: "", age: "", gender: "", address: "", phone: "", job: "" },
+        history: {
+          presentingComplaint: {
+            skinBreakdown: {
+              value: "",
+              details: {
+                whereIsTheProblem: "",
+                whenDidItStart: "",
+                howDidItStart: "",
+                whatMakesItBetter: "",
+                whatMakesItWorse: "",
+                howHasItBeenTreated: "",
+              }
+            },
+            swelling: {
+              value: "",
+              details: {
+                whereIsTheProblem: "",
+                whenDidItStart: "",
+                howDidItStart: "",
+                whatMakesItBetter: "",
+                whatMakesItWorse: "",
+                howHasItBeenTreated: "",
+              }
+            },
+            colorChange: {
+              value: "",
+              details: {
+                whereIsTheProblem: "",
+                whenDidItStart: "",
+                howDidItStart: "",
+                whatMakesItBetter: "",
+                whatMakesItWorse: "",
+                howHasItBeenTreated: "",
+              }
+            },
+            pain: {
+              value: "",
+              details: {
+                whenDidItStart: "",
+                howDidItStart: "",
+                wasThereAnInjury: "",
+                whereIsThePain: "",
+                whatIsItsNature: "",
+                whatAggravatesThePain: "",
+                whatRelievesThePain: "",
+                whenDoesItOccur: "",
+              }
+            },
+          }
+        },
       },
       tab: 'info'
     };
@@ -32,11 +93,12 @@ class UpdatePatientPage extends React.Component {
     this.setState({ tab })
   }
 
-  updatePatientState(event, tabName) {
+  updatePatientState(event) {
+    let patient = this.state.patient;
     const field = event.target.name;
-    const patient = this.state.patient;
-    patient[tabName][field] = event.target.value;
-    return this.setState({ patient: patient });
+    const value = event.target.value;
+    index(patient, field, value)
+    return this.setState({ patient });
   }
 
 
@@ -49,8 +111,8 @@ class UpdatePatientPage extends React.Component {
       })
     } else {
       window.createPatient(this.state.patient, res => {
+        this.props.history.push('/patients')
       })
-      this.props.history.push('/patients')
     }
   }
 
@@ -75,9 +137,9 @@ class UpdatePatientPage extends React.Component {
     }
     return (
       <div>
-        <ul class="tabs z-depth-1 ">
-          <li class={`tab col s4 ${tab=="info"?'active': ""}`} onClick={this.changeTab.bind(this, 'info')}><a title="Personal Information">Patient Info</a></li>
-          <li class={`tab col s4 ${tab=="history"?'active': ""}`} onClick={this.changeTab.bind(this, 'history')} ><a title="History">History</a></li>
+        <ul className="tabs z-depth-1 ">
+          <li className={`tab col s4 ${tab == "info" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 'info')}><a title="Personal Information">Patient Info</a></li>
+          <li className={`tab col s4 ${tab == "history" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 'history')} ><a title="History">History</a></li>
         </ul>
         <div>
           <h1>Update Patient</h1>

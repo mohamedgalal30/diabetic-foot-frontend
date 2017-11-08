@@ -33,54 +33,47 @@ class HistoryTab extends React.Component {
         let TabContent;
         switch (tab) {
             case TABS.PComp:
-                TabContent = <PCompTab
-                />
+                TabContent = <PCompTab onChange={this.props.onChange} onSave={this.props.onSave}/>
                 break;
             case TABS.PFH:
-                TabContent = <PFHTab
-                />
+                TabContent = <PFHTab />
                 break;
             case TABS.DHist:
-                TabContent = <DHistTab
-                />
+                TabContent = <DHistTab />
                 break;
             case TABS.PMH:
-                TabContent = <PMHTab
-                />
+                TabContent = <PMHTab />
                 break;
             case TABS.DrugHist:
-                TabContent = <DrugHistTab
-                />
+                TabContent = <DrugHistTab />
                 break;
             case TABS.FHist:
-                TabContent = <FHistTab
-                />
+                TabContent = <FHistTab />
                 break;
             case TABS.PsHist:
-                TabContent = <PsHistTab
-                />
+                TabContent = <PsHistTab />
                 break;
 
         }
 
 
         return (
-            <div class="col s12  carousel-item " id="tab2" >
-                <div class="row">
-                    <div class="col s12">
-                        <ul class="tabs" id="Slist">
-                            <li onClick={this.changeTab.bind(this, TABS.PComp)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Presenting Complaint">P.Comp</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PFH)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Past Foot History" >PFH</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.DHist)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Diabetic History">D.Hist</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PMH)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Past Medical History">PMH</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.DrugHist)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Drug History">Drug Hist</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.FHist)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Family History">F.Hist</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PsHist)} class="tab col "><a class={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Psychosocial History">Ps.Hist</a></li>
+            <div className="col s12  carousel-item " id="tab2" >
+                <div className="row">
+                    <div className="col s12">
+                        <ul className="tabs" id="Slist">
+                            <li onClick={this.changeTab.bind(this, TABS.PComp)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Presenting Complaint">P.Comp</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.PFH)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Past Foot History" >PFH</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.DHist)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Diabetic History">D.Hist</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.PMH)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Past Medical History">PMH</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.DrugHist)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Drug History">Drug Hist</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.FHist)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Family History">F.Hist</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.PsHist)} className="tab col "><a className={`tab col s4 ${tab == "info" ? 'active' : ""}`} title="Psychosocial History">Ps.Hist</a></li>
                         </ul>
-                        <div class="col s12  carousel-item " id="tab1">
-                            <div class="container">
-                                {TabContent}
-                                <div class="row">
+                        <div className="col s12  carousel-item " id="tab1">
+                            <div className="container">
+                                <div className="row">
+                                    {TabContent}
                                 </div>
                             </div>
                         </div>
