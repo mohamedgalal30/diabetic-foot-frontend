@@ -29,11 +29,12 @@ class HistoryTab extends React.Component {
     }
 
     render() {
+        let { presentingComplaint } = this.props.history;
         let tab = this.state.tab;
         let TabContent;
         switch (tab) {
             case TABS.PComp:
-                TabContent = <PCompTab onChange={this.props.onChange} onSave={this.props.onSave}/>
+                TabContent = <PCompTab presentingComplaint={presentingComplaint} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.PFH:
                 TabContent = <PFHTab />

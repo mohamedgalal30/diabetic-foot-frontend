@@ -5,6 +5,7 @@ import InfoTab from './InfoTab'
 import HistoryTab from './HistoryTab'
 
 function index(obj, is, value) {
+  console.log('inded', value)
   if (typeof is == 'string')
     return index(obj, is.split('.'), value);
   else if (is.length == 1 && value !== undefined)
@@ -25,7 +26,7 @@ class UpdatePatientPage extends React.Component {
         history: {
           presentingComplaint: {
             skinBreakdown: {
-              value: "",
+              value: false,
               details: {
                 whereIsTheProblem: "",
                 whenDidItStart: "",
@@ -36,7 +37,7 @@ class UpdatePatientPage extends React.Component {
               }
             },
             swelling: {
-              value: "",
+              value: false,
               details: {
                 whereIsTheProblem: "",
                 whenDidItStart: "",
@@ -47,7 +48,7 @@ class UpdatePatientPage extends React.Component {
               }
             },
             colorChange: {
-              value: "",
+              value: false,
               details: {
                 whereIsTheProblem: "",
                 whenDidItStart: "",
@@ -58,7 +59,7 @@ class UpdatePatientPage extends React.Component {
               }
             },
             pain: {
-              value: "",
+              value: false,
               details: {
                 whenDidItStart: "",
                 howDidItStart: "",
@@ -96,7 +97,9 @@ class UpdatePatientPage extends React.Component {
   updatePatientState(event) {
     let patient = this.state.patient;
     const field = event.target.name;
-    const value = event.target.value;
+    let value = event.target.value;
+    if(event.target.type == 'checkbox')
+     value = event.target.checked;
     index(patient, field, value)
     return this.setState({ patient });
   }
@@ -110,6 +113,7 @@ class UpdatePatientPage extends React.Component {
         this.props.history.push('/patients')
       })
     } else {
+      console.log("save", this.state.patient)
       window.createPatient(this.state.patient, res => {
         this.props.history.push('/patients')
       })
@@ -122,14 +126,14 @@ class UpdatePatientPage extends React.Component {
     switch (tab) {
       case "info":
         TabContent = <InfoTab
-          patient={this.state.patient.info}
+          info={this.state.patient.info}
           onSave={this.savePatient}
           onChange={this.updatePatientState}
         />
         break;
       case 'history':
         TabContent = <HistoryTab
-          patient={this.state.patient.info}
+          history={this.state.patient.history}
           onSave={this.savePatient}
           onChange={this.updatePatientState}
         />

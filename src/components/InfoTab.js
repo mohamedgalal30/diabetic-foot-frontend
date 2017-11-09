@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function InfoTab({ patient, onSave, onChange }) {
-    let { name, age, gender, address, phone, job } = patient;
+export default function InfoTab({ info, onSave, onChange }) {
+    let { name, age, gender, address, phone, job } = info;
     return (
         <div className="col s12  carousel-item " id="tab1">
             <div className="container">
