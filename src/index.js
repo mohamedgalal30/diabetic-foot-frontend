@@ -6,7 +6,9 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 
-window.getPatients = function getPatients(cb) {
+window.getPatients = function getPatients(str, cb) {
+    if (typeof str == "function") cb = str;
+    console.log(str)
     cb([{ id: 1, name: 'aaaaaaaaaaaaaaa' }, { id: 2, name: 'bbbbbbbbbbbbbbbb' }])
 }
 
