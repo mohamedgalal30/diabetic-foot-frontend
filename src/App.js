@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import PatientsPage from './components/PatientsPage'
-import NewPatientPage from './components/NewPatientPage'
 import UpdatePatientPage from './components/UpdatePatientPage'
 import HomePage from './components/HomePage'
 import logo from './logo.svg';

@@ -39,8 +39,6 @@ class FHistTab extends React.Component {
           </div>
         </div>
 
-        <button className="btn waves-effect waves-red" id="btn21" onClick={(e) => this.props.onSave(e)}>Next</button>
-
       </div>
     );
   }
@@ -48,7 +46,6 @@ class FHistTab extends React.Component {
 
 // FHistTab.propTypes = {
 //   patient: PropTypes.object.isRequired,
-//   onSave: PropTypes.func.isRequired,
 //   onChange: PropTypes.func.isRequired,
 //   // saving: PropTypes.bool
 // };

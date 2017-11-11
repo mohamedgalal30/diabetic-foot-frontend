@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function InfoTab({ info, onSave, onChange }) {
+export default function InfoTab({ info, onChange }) {
     let { name, age, gender, address, phone, job } = info;
     return (
         <div className="col s12  carousel-item " id="tab1">
@@ -44,9 +44,6 @@ export default function InfoTab({ info, onSave, onChange }) {
                         <input value={job} onChange={(e)=>onChange(e)} name="info.job" required />
                     </div>
 
-                    <div className="col s4">
-                        <button className="btn waves-effect waves-red" onClick={onSave} type="submit">Next</button>
-                    </div>
                 </div>
             </div>
         </div>

@@ -112,18 +112,21 @@ class UpdatePatientPage extends React.Component {
             otherSeriousIllness: "",
             causeOfDeathOfNearRelatives: ""
           },
-          psychosocialHistory:{
+          psychosocialHistory: {
             occupation: "",
             numberOfCigarettes: "", //smoked per day
-            numberOfUnitsOfAlcohol:"", //per day
+            numberOfUnitsOfAlcohol: "", //per day
             psychiatricIllness: "",
             homeCircumstances: "",
-            livesWith: "" , //[Alone, friends or relative]
+            livesWith: "", //[Alone, friends or relative]
           }
         },
-        tab: 'info'
-      }
+      },
+      tab: 1
     }
+    this.nextTab = this.nextTab.bind(this);
+    this.prevTab = this.prevTab.bind(this);
+    this.changeTab = this.changeTab.bind(this);
     this.savePatient = this.savePatient.bind(this);
     this.updatePatientState = this.updatePatientState.bind(this);
   }
@@ -138,10 +141,6 @@ class UpdatePatientPage extends React.Component {
     }
   }
 
-  changeTab(tab) {
-    this.setState({ tab })
-  }
-
   updatePatientState(event) {
     let patient = this.state.patient;
     const field = event.target.name;
@@ -152,7 +151,18 @@ class UpdatePatientPage extends React.Component {
     return this.setState({ patient });
   }
 
+  changeTab(tab) {
+    this.setState({ tab })
+  }
 
+  nextTab() {
+    let tab = this.state.tab;
+    if (tab < 8) this.setState({ tab: ++tab })
+  }
+  prevTab() {
+    let tab = this.state.tab;
+    if (tab > 1) this.setState({ tab: --tab })
+  }
   savePatient(event) {
     event.preventDefault();
     let id = this.props.match.params.id;
@@ -172,30 +182,45 @@ class UpdatePatientPage extends React.Component {
     let tab = this.state.tab;
     let TabContent;
     switch (tab) {
-      case "info":
+      case 1:
         TabContent = <InfoTab
           info={this.state.patient.info}
-          onSave={this.savePatient}
           onChange={this.updatePatientState}
         />
         break;
-      case 'history':
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
         TabContent = <HistoryTab
           history={this.state.patient.history}
-          onSave={this.savePatient}
           onChange={this.updatePatientState}
+          nextTab={this.nextTab}
+          prevTab={this.prevTab}
+          changeTab={this.changeTab}
+          tab={this.state.tab}
         />
         break;
     }
     return (
       <div>
         <ul className="tabs z-depth-1 ">
-          <li className={`tab col s4 ${tab == "info" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 'info')}><a title="Personal Information">Patient Info</a></li>
-          <li className={`tab col s4 ${tab == "history" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 'history')} ><a title="History">History</a></li>
+          <li className={`tab col s4 ${tab == "info" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 1)}><a title="Personal Information">Patient Info</a></li>
+          <li className={`tab col s4 ${tab == "history" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 2)} ><a title="History">History</a></li>
         </ul>
         <div>
-          <h1>Update Patient</h1>
+          <h1>Patient Data</h1>
           {TabContent}
+        </div>
+        <hr />
+        <div className="col s4">
+          <button className="btn waves-effect waves-red" onClick={this.prevTab}>Prev</button>
+          <button className="btn waves-effect waves-red" onClick={this.nextTab}>Next</button>
+          <button className="btn waves-effect waves-red" onClick={this.savePatient}>Save</button>
         </div>
       </div>
     );

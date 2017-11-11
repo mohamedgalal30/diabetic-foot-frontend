@@ -5,7 +5,7 @@ import React from 'react';
 
 class DHistTab extends React.Component {
   render() {
-    let { onChange, onSave } = this.props;
+    let { onChange } = this.props;
     return (
       <div id="test1" className="col s12" >
         <div className="container">
@@ -135,8 +135,6 @@ class DHistTab extends React.Component {
               </div>
             </div>
 
-
-            <button className="btn waves-effect waves-red" id="btn21" onClick={(e) => this.props.onSave(e)}>Next</button>
           </div>
         </div>
       </div>
@@ -146,7 +144,6 @@ class DHistTab extends React.Component {
 
 // DHistTab.propTypes = {
 //   patient: PropTypes.object.isRequired,
-//   onSave: PropTypes.func.isRequired,
 //   onChange: PropTypes.func.isRequired,
 //   // saving: PropTypes.bool
 // };

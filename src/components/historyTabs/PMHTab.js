@@ -47,7 +47,6 @@ class PMHTAB extends React.Component {
             </div>
 
 
-            <button className="btn waves-effect waves-red" id="btn21" onClick={(e) => this.props.onSave(e)}>Next</button>
           </div>
         </div>
       </div>

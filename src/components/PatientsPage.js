@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes  from 'prop-types';
+// import PropTypes  from 'prop-types';
 import { Link } from 'react-router-dom';
 // import {connect} from 'react-redux';
 // import {bindActionCreators} from 'redux';
 import PatientList from './PatientList';
-// import NewPatientPage from './NewPatientPage';
 
 class PatientsPage extends React.Component {
   constructor(props, context) {

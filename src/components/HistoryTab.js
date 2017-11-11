@@ -7,25 +7,25 @@ import DrugHistTab from './historyTabs/DrugHistTab'
 import FHistTab from './historyTabs/FHistTab'
 import PsHistTab from './historyTabs/PsHistTab'
 const TABS = {
-    PComp: "PComp",
-    PFH: "PFH",
-    DHist: "DHist",
-    PMH: "PMH",
-    DrugHist: "DrugHist",
-    FHist: "FHist",
-    PsHist: "PsHist",
+    PComp: 2,
+    PFH: 3,
+    DHist: 4,
+    PMH: 5,
+    DrugHist: 6,
+    FHist: 7,
+    PsHist: 8,
 }
 
 class HistoryTab extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tab: TABS.PComp
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         tab: TABS.PComp
+    //     };
+    // }
 
     changeTab(tab) {
-        this.setState({ tab })
+        this.props.changeTab(tab)
     }
 
 
@@ -39,29 +39,29 @@ class HistoryTab extends React.Component {
             familyHistory,
             psychosocialHistory
         } = this.props.history;
-        let tab = this.state.tab;
+        let tab = this.props.tab;
         let TabContent;
         switch (tab) {
             case TABS.PComp:
-                TabContent = <PCompTab presentingComplaint={presentingComplaint} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <PCompTab presentingComplaint={presentingComplaint} onChange={this.props.onChange} />
                 break;
             case TABS.PFH:
-                TabContent = <PFHTab pastFootHistory={pastFootHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <PFHTab pastFootHistory={pastFootHistory} onChange={this.props.onChange} />
                 break;
             case TABS.DHist:
-                TabContent = <DHistTab diabeticHistory={diabeticHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <DHistTab diabeticHistory={diabeticHistory} onChange={this.props.onChange} />
                 break;
             case TABS.PMH:
-                TabContent = <PMHTab pastMedicalHistory={pastMedicalHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <PMHTab pastMedicalHistory={pastMedicalHistory} onChange={this.props.onChange} />
                 break;
             case TABS.DrugHist:
-                TabContent = <DrugHistTab drugHistory={drugHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <DrugHistTab drugHistory={drugHistory} onChange={this.props.onChange} />
                 break;
             case TABS.FHist:
-                TabContent = <FHistTab familyHistory={familyHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <FHistTab familyHistory={familyHistory} onChange={this.props.onChange} />
                 break;
             case TABS.PsHist:
-                TabContent = <PsHistTab psychosocialHistory={psychosocialHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
+                TabContent = <PsHistTab psychosocialHistory={psychosocialHistory} onChange={this.props.onChange} />
                 break;
 
         }
