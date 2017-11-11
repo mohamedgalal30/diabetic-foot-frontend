@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import PatientForm from './PatientForm'
+// import PropTypes from 'prop-types';
 import InfoTab from './InfoTab'
 import HistoryTab from './HistoryTab'
 
 function index(obj, is, value) {
-  console.log('inded', value)
   if (typeof is == 'string')
     return index(obj, is.split('.'), value);
   else if (is.length == 1 && value !== undefined)
@@ -71,11 +69,61 @@ class UpdatePatientPage extends React.Component {
                 whenDoesItOccur: "",
               }
             },
+          },
+          pastFootHistory: {
+            previousUlcersAndTreatment: false,
+            amputations: {
+              value: false,
+              type: "" //[major or minor]
+            },
+            peripheralAngioplasties: false,
+            peripheralArterialBypasses: false
+          },
+          diabeticHistory: {
+            typeOfDiabetes: "", // [type1, type2]
+            durationOfDiabetes: {
+              value: "", //[discover, treatment]
+              details: ""
+            },
+            treatmentOfDiabetes: {
+              value: "",//[Insulin, oral hypoglycemic] 
+              details: ""
+            },
+            complicationsOfDiabetes: {
+              retinopathy: false,
+              nephropathy: false,
+              cardiovascular: false,
+              cerebrovascular: false,
+            }
+          },
+          pastMedicalHistory: {
+            seriousIllness: false,
+            accidents: false,
+            injuries: false,
+            hospitalAdmissions: false,
+            operations: false,
+          },
+          drugHistory: {
+            presentMedication: "",
+            knownAllergies: "",
+          },
+          familyHistory: {
+            diabetes: false,
+            otherSeriousIllness: "",
+            causeOfDeathOfNearRelatives: ""
+          },
+          psychosocialHistory:{
+            occupation: "",
+            numberOfCigarettes: "", //smoked per day
+            numberOfUnitsOfAlcohol:"", //per day
+            psychiatricIllness: "",
+            homeCircumstances: "",
+            livesWith: "" , //[Alone, friends or relative]
           }
         },
-      },
-      tab: 'info'
-    };
+        tab: 'info'
+      }
+    }
     this.savePatient = this.savePatient.bind(this);
     this.updatePatientState = this.updatePatientState.bind(this);
   }
@@ -98,8 +146,8 @@ class UpdatePatientPage extends React.Component {
     let patient = this.state.patient;
     const field = event.target.name;
     let value = event.target.value;
-    if(event.target.type == 'checkbox')
-     value = event.target.checked;
+    if (event.target.type == 'checkbox')
+      value = event.target.checked;
     index(patient, field, value)
     return this.setState({ patient });
   }

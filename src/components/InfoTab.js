@@ -19,11 +19,11 @@ export default function InfoTab({ info, onSave, onChange }) {
                     <div className="col s8">
                         <div className="row">
                             <p className="col s4">
-                                <input id="male" onChange={(e)=>onChange(e)} type="radio" name="info.gender" value="male" />
+                                <input id="male" checked={gender == "male"} onChange={(e)=>onChange(e)} type="radio" name="info.gender" value="male" />
                                 <label htmlFor="male">Male</label>
                             </p>
                             <p className="col s4">
-                                <input id="female" type="radio" onChange={(e)=>onChange(e)} name="info.gender" value="female" />
+                                <input id="female" checked={gender == "female"} type="radio" onChange={(e)=>onChange(e)} name="info.gender" value="female" />
                                 <label htmlFor="female">Female</label>
                             </p>
                         </div>
@@ -45,7 +45,7 @@ export default function InfoTab({ info, onSave, onChange }) {
                     </div>
 
                     <div className="col s4">
-                        <button className="btn waves-effect waves-red" id="btn1" onClick={onSave} type="submit">Next</button>
+                        <button className="btn waves-effect waves-red" onClick={onSave} type="submit">Next</button>
                     </div>
                 </div>
             </div>

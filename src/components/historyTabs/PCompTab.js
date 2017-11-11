@@ -1,11 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class PCompTab extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
 
   render() {
     return (
@@ -23,11 +19,11 @@ class PCompTab extends React.Component {
                 this.props.presentingComplaint.skinBreakdown.value ?
                   <div className="col-md-9">
 
-                    <div class="row form-group">
-                      <div class="row">
+                    <div className="row form-group">
+                      <div className="row">
                         <label htmlFor="ck11" className="white-text">Where is the Problem?</label>
                       </div>
-                      <div class="row">
+                      <div className="row">
                         <textarea cols={70} rows={4}
                           onChange={(e) => this.props.onChange(e)}
                           name="history.presentingComplaint.skinBreakdown.details.whereIsTheProblem"
@@ -36,7 +32,7 @@ class PCompTab extends React.Component {
                       </div>
                     </div>
 
-                    <div class="row form-group">
+                    <div className="row form-group">
                       <div className="row">
                         <label htmlFor="ck11" className="white-text">When did it start?</label>
                       </div>
@@ -121,11 +117,11 @@ class PCompTab extends React.Component {
                 this.props.presentingComplaint.swelling.value ?
                   <div className="col-md-9">
 
-                    <div class="row form-group">
-                      <div class="row">
+                    <div className="row form-group">
+                      <div className="row">
                         <label htmlFor="ck11" className="white-text">Where is the Problem?</label>
                       </div>
-                      <div class="row">
+                      <div className="row">
                         <textarea cols={70} rows={4}
                           onChange={(e) => this.props.onChange(e)}
                           name="history.presentingComplaint.swelling.details.whereIsTheProblem"
@@ -134,7 +130,7 @@ class PCompTab extends React.Component {
                       </div>
                     </div>
 
-                    <div class="row form-group">
+                    <div className="row form-group">
                       <div className="row">
                         <label htmlFor="ck11" className="white-text">When did it start?</label>
                       </div>
@@ -218,11 +214,11 @@ class PCompTab extends React.Component {
                 this.props.presentingComplaint.colorChange.value ?
                   <div className="col-md-9">
 
-                    <div class="row form-group">
-                      <div class="row">
+                    <div className="row form-group">
+                      <div className="row">
                         <label htmlFor="ck11" className="white-text">Where is the Problem?</label>
                       </div>
-                      <div class="row">
+                      <div className="row">
                         <textarea cols={70} rows={4}
                           onChange={(e) => this.props.onChange(e)}
                           name="history.presentingComplaint.colorChange.details.whereIsTheProblem"
@@ -231,7 +227,7 @@ class PCompTab extends React.Component {
                       </div>
                     </div>
 
-                    <div class="row form-group">
+                    <div className="row form-group">
                       <div className="row">
                         <label htmlFor="ck11" className="white-text">When did it start?</label>
                       </div>

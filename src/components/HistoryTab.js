@@ -28,8 +28,17 @@ class HistoryTab extends React.Component {
         this.setState({ tab })
     }
 
+
     render() {
-        let { presentingComplaint } = this.props.history;
+        let {
+            presentingComplaint,
+            pastFootHistory,
+            diabeticHistory,
+            pastMedicalHistory,
+            drugHistory,
+            familyHistory,
+            psychosocialHistory
+        } = this.props.history;
         let tab = this.state.tab;
         let TabContent;
         switch (tab) {
@@ -37,22 +46,22 @@ class HistoryTab extends React.Component {
                 TabContent = <PCompTab presentingComplaint={presentingComplaint} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.PFH:
-                TabContent = <PFHTab />
+                TabContent = <PFHTab pastFootHistory={pastFootHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.DHist:
-                TabContent = <DHistTab />
+                TabContent = <DHistTab diabeticHistory={diabeticHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.PMH:
-                TabContent = <PMHTab />
+                TabContent = <PMHTab pastMedicalHistory={pastMedicalHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.DrugHist:
-                TabContent = <DrugHistTab />
+                TabContent = <DrugHistTab drugHistory={drugHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.FHist:
-                TabContent = <FHistTab />
+                TabContent = <FHistTab familyHistory={familyHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
             case TABS.PsHist:
-                TabContent = <PsHistTab />
+                TabContent = <PsHistTab psychosocialHistory={psychosocialHistory} onChange={this.props.onChange} onSave={this.props.onSave} />
                 break;
 
         }

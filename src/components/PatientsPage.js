@@ -16,7 +16,7 @@ class PatientsPage extends React.Component {
   componentWillMount() {
     window.getPatients(patients => {
       this.setState({
-        patients: patients
+        patients: patients || []
       })
     })
   }
@@ -24,7 +24,7 @@ class PatientsPage extends React.Component {
   search(e) {
     window.getPatients(e.target.value, patients => {
       this.setState({
-        patients: patients
+        patients: patients || []
       })
     })
   }

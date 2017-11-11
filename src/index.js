@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 window.getPatients = function getPatients(str, cb) {
     if (typeof str == "function") cb = str;
     console.log(str)
-    cb([{ id: 1, name: 'aaaaaaaaaaaaaaa' }, { id: 2, name: 'bbbbbbbbbbbbbbbb' }])
+    cb([{info:{ id: 1, name: 'aaaaaaaaaaaaaaa' }}, { id: 2, name: 'bbbbbbbbbbbbbbbb' }])
 }
 
 window.getPatient = function getPatient(id, cb) {
