@@ -4,8 +4,10 @@ import PropTypes  from 'prop-types';
 import PatientListRow from './PatientListRow';
 
 const PatientList = ({patients}) => {
-  return (
-    <table className="table">
+  if(patients.length){
+
+    return (
+      <table className="table">
       <thead>
         <tr>
           <th>Name</th>
@@ -16,10 +18,13 @@ const PatientList = ({patients}) => {
           var info = patient.info || {};
           return <PatientListRow key={index} patient={info} />
         }
-        )}
+      )}
       </tbody>
     </table>
   );
+}else{
+  return <div>Loading...</div>
+}
 };
 
 // PatientList.propTypes = {

@@ -56,7 +56,6 @@ class PMHTAB extends React.Component {
 
 // PMHTAB.propTypes = {
 //   patient: PropTypes.object.isRequired,
-//   onSave: PropTypes.func.isRequired,
 //   onChange: PropTypes.func.isRequired,
 //   // saving: PropTypes.bool
 // };
