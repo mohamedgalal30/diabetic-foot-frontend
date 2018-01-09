@@ -15,7 +15,7 @@ const PatientList = ({patients}) => {
       </thead>
       <tbody>
         {patients.map((patient, index) => {
-          var info = patient.info || {};
+          var info = patient.history.info || {};
           return <PatientListRow key={index} patient={info} />
         }
       )}

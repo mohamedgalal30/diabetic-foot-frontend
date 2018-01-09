@@ -1,7 +1,10 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import InfoTab from './InfoTab'
 import HistoryTab from './HistoryTab'
+import ExaminationTab from './ExaminationTab'
+import InvestigationsTab from './InvestigationsTab'
+import DiagnosisTab from './DiagnosisTab'
+import patient from '../schema'
 
 function index(obj, is, value) {
   if (typeof is == 'string')
@@ -19,109 +22,7 @@ class UpdatePatientPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      patient: {
-        info: { name: "", age: "", gender: "", address: "", phone: "", job: "" },
-        history: {
-          presentingComplaint: {
-            skinBreakdown: {
-              value: false,
-              details: {
-                whereIsTheProblem: "",
-                whenDidItStart: "",
-                howDidItStart: "",
-                whatMakesItBetter: "",
-                whatMakesItWorse: "",
-                howHasItBeenTreated: "",
-              }
-            },
-            swelling: {
-              value: false,
-              details: {
-                whereIsTheProblem: "",
-                whenDidItStart: "",
-                howDidItStart: "",
-                whatMakesItBetter: "",
-                whatMakesItWorse: "",
-                howHasItBeenTreated: "",
-              }
-            },
-            colorChange: {
-              value: false,
-              details: {
-                whereIsTheProblem: "",
-                whenDidItStart: "",
-                howDidItStart: "",
-                whatMakesItBetter: "",
-                whatMakesItWorse: "",
-                howHasItBeenTreated: "",
-              }
-            },
-            pain: {
-              value: false,
-              details: {
-                whenDidItStart: "",
-                howDidItStart: "",
-                wasThereAnInjury: "",
-                whereIsThePain: "",
-                whatIsItsNature: "",
-                whatAggravatesThePain: "",
-                whatRelievesThePain: "",
-                whenDoesItOccur: "",
-              }
-            },
-          },
-          pastFootHistory: {
-            previousUlcersAndTreatment: false,
-            amputations: {
-              value: false,
-              type: "" //[major or minor]
-            },
-            peripheralAngioplasties: false,
-            peripheralArterialBypasses: false
-          },
-          diabeticHistory: {
-            typeOfDiabetes: "", // [type1, type2]
-            durationOfDiabetes: {
-              value: "", //[discover, treatment]
-              details: ""
-            },
-            treatmentOfDiabetes: {
-              value: "",//[Insulin, oral hypoglycemic] 
-              details: ""
-            },
-            complicationsOfDiabetes: {
-              retinopathy: false,
-              nephropathy: false,
-              cardiovascular: false,
-              cerebrovascular: false,
-            }
-          },
-          pastMedicalHistory: {
-            seriousIllness: false,
-            accidents: false,
-            injuries: false,
-            hospitalAdmissions: false,
-            operations: false,
-          },
-          drugHistory: {
-            presentMedication: "",
-            knownAllergies: "",
-          },
-          familyHistory: {
-            diabetes: false,
-            otherSeriousIllness: "",
-            causeOfDeathOfNearRelatives: ""
-          },
-          psychosocialHistory: {
-            occupation: "",
-            numberOfCigarettes: "", //smoked per day
-            numberOfUnitsOfAlcohol: "", //per day
-            psychiatricIllness: "",
-            homeCircumstances: "",
-            livesWith: "", //[Alone, friends or relative]
-          }
-        },
-      },
+      patient: patient,
       tab: 1
     }
     this.nextTab = this.nextTab.bind(this);
@@ -183,11 +84,6 @@ class UpdatePatientPage extends React.Component {
     let TabContent;
     switch (tab) {
       case 1:
-        TabContent = <InfoTab
-          info={this.state.patient.info}
-          onChange={this.updatePatientState}
-        />
-        break;
       case 2:
       case 3:
       case 4:
@@ -205,12 +101,48 @@ class UpdatePatientPage extends React.Component {
           tab={this.state.tab}
         />
         break;
+      case 9:
+      case 10:
+      case 11:
+        TabContent = <ExaminationTab
+          examination={this.state.patient.examination}
+          onChange={this.updatePatientState}
+          nextTab={this.nextTab}
+          prevTab={this.prevTab}
+          changeTab={this.changeTab}
+          tab={this.state.tab}
+        />
+        break;
+      case 12:
+      case 13:
+      case 14:
+        TabContent = <InvestigationsTab
+          investigations={this.state.patient.investigations}
+          onChange={this.updatePatientState}
+          nextTab={this.nextTab}
+          prevTab={this.prevTab}
+          changeTab={this.changeTab}
+          tab={this.state.tab}
+        />
+        break;
+      case 15:
+        TabContent = <DiagnosisTab
+          diagnosis={this.state.patient.diagnosis}
+          onChange={this.updatePatientState}
+          nextTab={this.nextTab}
+          prevTab={this.prevTab}
+          changeTab={this.changeTab}
+          tab={this.state.tab}
+        />
+        break;
     }
     return (
       <div>
         <ul className="tabs z-depth-1 ">
-          <li className={`tab col s4 ${tab == "info" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 1)}><a title="Personal Information">Patient Info</a></li>
-          <li className={`tab col s4 ${tab == "history" ? 'active' : ""}`} onClick={this.changeTab.bind(this, 2)} ><a title="History">History</a></li>
+          <li className={`tab col s4 ${(tab == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 1)}><a title="History">History</a></li>
+          <li className={`tab col s4 ${(tab == 9 || 10 || 11 ) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 9)} ><a title="Examination">Examination</a></li>
+          <li className={`tab col s4 ${(tab == 12 || 13 || 14 ) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 12)} ><a title="Investigations">Investigations</a></li>
+          <li className={`tab col s4 ${tab == 15 ? 'active' : ""}`} onClick={this.changeTab.bind(this, 15)} ><a title="Diagnosis">Diagnosis</a></li>
         </ul>
         <div>
           <h1>Patient Data</h1>

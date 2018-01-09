@@ -111,12 +111,12 @@ class DHistTab extends React.Component {
               <label className="white-text">Complications Of Diabetes</label>
             </div>
             <div className="row">
-            <div className="col-md-3">
-              <input checked={this.props.diabeticHistory.complicationsOfDiabetes.retinopathy} onChange={(e) => this.props.onChange(e)} name="history.diabeticHistory.complicationsOfDiabetes.retinopathy" type="checkbox" />
-              <label htmlFor="ck11" className="white-text">Retinopathy</label>
+              <div className="col-md-3">
+                <input checked={this.props.diabeticHistory.complicationsOfDiabetes.retinopathy} onChange={(e) => this.props.onChange(e)} name="history.diabeticHistory.complicationsOfDiabetes.retinopathy" type="checkbox" />
+                <label htmlFor="ck11" className="white-text">Retinopathy</label>
+              </div>
             </div>
-          </div>
-          <div className="row">
+            <div className="row">
               <div className="col-md-3">
                 <input checked={this.props.diabeticHistory.complicationsOfDiabetes.nephropathy} onChange={(e) => this.props.onChange(e)} name="history.diabeticHistory.complicationsOfDiabetes.nephropathy" type="checkbox" />
                 <label htmlFor="ck11" className="white-text">Nephropathy</label>
