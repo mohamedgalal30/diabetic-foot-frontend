@@ -25,7 +25,7 @@ class ExaminationTab extends React.Component {
         let x = this.props
         let {
             inespection,
-            palplation,
+            palpation,
             neurologicalAssessment,
         } = this.props.examination;
         let tab = this.props.tab;
@@ -35,10 +35,10 @@ class ExaminationTab extends React.Component {
                 TabContent = <InspectionTab inespection={inespection} onChange={this.props.onChange} />
                 break;
             case TABS.Palpation:
-                TabContent = <PalpationTab neurologicalAssessment={neurologicalAssessment} onChange={this.props.onChange} />
+                TabContent = <PalpationTab palpation={palpation} onChange={this.props.onChange} />
                 break;
             case TABS.NeurologicalAssessment:
-                TabContent = <NeurologicalAssessmentTab palplation={palplation} onChange={this.props.onChange} />
+                TabContent = <NeurologicalAssessmentTab neurologicalAssessment={neurologicalAssessment} onChange={this.props.onChange} />
                 break;
 
         }

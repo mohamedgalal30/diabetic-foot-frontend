@@ -120,26 +120,51 @@ export default {
       swelling: "bilateralFootSwelling",
       deformity: [],
       limitedJointMobility: false,
-      color: [],
-      necrosis: []
+      color: {
+        redFoot: false,
+        blueFoot: false,
+        redToe: false,
+        blueToe: false,
+        palewhite: false,
+        black: false,
+      },
+      necrosis: {
+        blackOrBrownDevitalizedTissue: false,
+        wetOrDry: false,
+      }
     },
-    palplation: {
+    palpation: {
       pulses: {
         dorsalisPedis: "",
         posteriorTibial: ""
       },
-      temperature: [],
+      temperature: {
+        warmAreas: false,
+        hotSpots: false,
+        unilateralPedalTemperature: false,
+        coldFoot: false,
+      },
       oedema: false,
       crepitus: false
     },
     neurologicalAssessment: {
-      monofilamentIsAt5site: [],
+      monofilamentIsAt5site: {
+        all: false,
+        some: false,
+        no: false,
+      },
       achillesTendonPinch: false,
-      cottonWisp: [],
+      cottonWisp: {
+        all: false,
+        some: false,
+        no: false,
+      },
       ibrationUsing128HzTuningFork: false,
       footwearAssessment: "",
       generalExamination: {
-        values: [],
+        cardiovascular: false,
+        respiratory: false,
+        abdomen: false,
         eyes: ""
       }
     }

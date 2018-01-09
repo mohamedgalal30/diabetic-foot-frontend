@@ -27,7 +27,6 @@ class InspectionTab extends React.Component {
     ]
   }
   swellingList() {
-    // make this radio button
     let swelling = this.props.inespection.swelling;
     return [
       { label: "bilateral foot swelling", checked: swelling == "bilateralFootSwelling", value: "bilateralFootSwelling" },
