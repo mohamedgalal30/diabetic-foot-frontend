@@ -26,7 +26,7 @@ class RadioButtonGroup extends React.Component {
             return <div key={index} className="row">
               <div className="col-md-12">
                 <label>{item.label}</label>
-                <input type="radio" name={this.props.name} checked={item.checked} onChange={(e) => this.props.onChange(e)} />
+                <input type="radio" name={this.props.name} value={item.value} checked={item.checked} onChange={(e) => this.props.onChange(e)} />
               </div>
             </div>
           })

@@ -5,7 +5,7 @@ import Radiological from './investigationsTabs/RadiologicalTab'
 const TABS = {
     Main: 12,
     Laboratory: 13,
-    NeurologicalAssessment: 14,
+    Radiological: 14,
 }
 
 class InvestigationsTab extends React.Component {
@@ -29,7 +29,7 @@ class InvestigationsTab extends React.Component {
             case TABS.Laboratory:
                 TabContent = <LaboratoryTab laboratory={laboratory} onChange={this.props.onChange} />
                 break;
-            case TABS.NeurologicalAssessment:
+            case TABS.Radiological:
                 TabContent = <Radiological radiological={radiological} onChange={this.props.onChange} />
                 break;
 
@@ -43,7 +43,7 @@ class InvestigationsTab extends React.Component {
                         <ul className="tabs" id="Slist">
                             <li onClick={this.changeTab.bind(this, TABS.Main)} className="tab col "><a className={`tab col s4 ${tab == 9 ? 'active' : ""}`} title="Main">Main</a></li>
                             <li onClick={this.changeTab.bind(this, TABS.Laboratory)} className="tab col "><a className={`tab col s4 ${tab == 10 ? 'active' : ""}`} title="Past Foot History" >Laboratory</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.NeurologicalAssessment)} className="tab col "><a className={`tab col s4 ${tab == 11 ? 'active' : ""}`} title="NeurologicalAssessment">NeurologicalAssessment</a></li>
+                            <li onClick={this.changeTab.bind(this, TABS.Radiological)} className="tab col "><a className={`tab col s4 ${tab == 11 ? 'active' : ""}`} title="Radiological">Radiological</a></li>
                         </ul>
                         <div className="col s12  carousel-item " id="tab1">
                             <div className="container">

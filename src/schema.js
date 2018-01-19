@@ -192,6 +192,13 @@ export default {
   diagnosis: {
     class: "",
     stage: "",
-    multidisciplinaryManagementForEachStage: []
+    multidisciplinaryManagementForEachStage: {
+      metabolicControl: false,
+      mechanicalControl: false,
+      woundControl: false,
+      vascularControl: false,
+      microbiologicalControl: false,
+      educationalControl: false,
+    }
   }
 }
