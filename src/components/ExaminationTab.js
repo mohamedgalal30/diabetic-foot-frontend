@@ -45,7 +45,7 @@ class ExaminationTab extends React.Component {
 
 
         return (
-            <div className="col s12  carousel-item " id="tab2" >
+            <div className=" " id="tab2" >
                 <div className="row">
                     <div className="col s12">
                         <ul className="tabs" id="Slist">
@@ -53,7 +53,7 @@ class ExaminationTab extends React.Component {
                             <li onClick={this.changeTab.bind(this, TABS.Palpation)} className="tab col "><a className={`tab col s4 ${tab == 10 ? 'active' : ""}`} title="Past Foot History" >Palpation</a></li>
                             <li onClick={this.changeTab.bind(this, TABS.NeurologicalAssessment)} className="tab col "><a className={`tab col s4 ${tab == 11 ? 'active' : ""}`} title="NeurologicalAssessment">NeurologicalAssessment</a></li>
                         </ul>
-                        <div className="col s12  carousel-item " id="tab1">
+                        <div className=" " id="tab1">
                             <div className="container">
                                 <div className="row">
                                     {TabContent}

@@ -7,11 +7,11 @@ import DiagnosisTab from './DiagnosisTab'
 import patient from '../schema'
 
 function index(obj, is, value) {
-  if (typeof is == 'string')
+  if (typeof is === 'string')
     return index(obj, is.split('.'), value);
-  else if (is.length == 1 && value !== undefined)
+  else if (is.length === 1 && value !== undefined)
     return obj[is[0]] = value;
-  else if (is.length == 0)
+  else if (is.length === 0)
     return obj;
   else
     return index(obj[is[0]] || { [is[0]]: {} }, is.slice(1), value);
@@ -46,7 +46,7 @@ class UpdatePatientPage extends React.Component {
     let patient = this.state.patient;
     const field = event.target.name;
     let value = event.target.value;
-    if (event.target.type == 'checkbox')
+    if (event.target.type === 'checkbox')
       value = event.target.checked;
     index(patient, field, value)
     return this.setState({ patient });
@@ -134,14 +134,16 @@ class UpdatePatientPage extends React.Component {
           tab={this.state.tab}
         />
         break;
+      default:
+        TabContent = null;
     }
     return (
       <div>
         <ul className="tabs z-depth-1 ">
-          <li className={`tab col s4 ${(tab == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 1)}><a title="History">History</a></li>
-          <li className={`tab col s4 ${(tab == 9 || 10 || 11 ) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 9)} ><a title="Examination">Examination</a></li>
-          <li className={`tab col s4 ${(tab == 12 || 13 || 14 ) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 12)} ><a title="Investigations">Investigations</a></li>
-          <li className={`tab col s4 ${tab == 15 ? 'active' : ""}`} onClick={this.changeTab.bind(this, 15)} ><a title="Diagnosis">Diagnosis</a></li>
+          <li className={`tab col s4 ${([1, 2, 3, 4, 5, 6, 7, 8].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 1)}><a title="History">History</a></li>
+          <li className={`tab col s4 ${([9, 10, 11].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 9)} ><a title="Examination">Examination</a></li>
+          <li className={`tab col s4 ${([12, 13, 14].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 12)} ><a title="Investigations">Investigations</a></li>
+          <li className={`tab col s4 ${([15].indexOf(tab) != -1)? 'active' : ""}`} onClick={this.changeTab.bind(this, 15)} ><a title="Diagnosis">Diagnosis</a></li>
         </ul>
         <div>
           <h1>Patient Data</h1>

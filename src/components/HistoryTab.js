@@ -74,7 +74,7 @@ class HistoryTab extends React.Component {
 
 
         return (
-            <div className="col s12  carousel-item " id="tab2" >
+            <div className=" "  >
                 <div className="row">
                     <div className="col s12">
                         <ul className="tabs" id="Slist">
@@ -87,7 +87,7 @@ class HistoryTab extends React.Component {
                             <li onClick={this.changeTab.bind(this, TABS.FHist)} className="tab col "><a className={`tab col s4 ${tab == TABS.FHist ? 'active' : ""}`} title="Family History">F.Hist</a></li>
                             <li onClick={this.changeTab.bind(this, TABS.PsHist)} className="tab col "><a className={`tab col s4 ${tab == TABS.PsHist ? 'active' : ""}`} title="Psychosocial History">Ps.Hist</a></li>
                         </ul>
-                        <div className="col s12  carousel-item " id="tab1">
+                        <div className=" " >
                             <div className="container">
                                 <div className="row">
                                     {TabContent}

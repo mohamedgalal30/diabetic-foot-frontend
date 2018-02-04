@@ -3,7 +3,7 @@ import React from 'react';
 export default function InfoTab({ info, onChange }) {
     let { name, age, gender, address, phone, job } = info;
     return (
-        <div className="col s12  carousel-item " id="tab1">
+        <div className=" " id="tab1">
             <div className="container">
 
                 <div className="row">

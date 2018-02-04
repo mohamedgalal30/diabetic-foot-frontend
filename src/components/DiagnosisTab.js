@@ -138,10 +138,10 @@ with the amputated stump .
             return StageDiv;
         }
         return (
-            <div className="col s12  carousel-item " id="tab2" >
+            <div className=" " id="tab2" >
                 <div className="row">
                     <div className="col s12">
-                        <div className="col s12  carousel-item " id="tab1">
+                        <div className=" " id="tab1">
                             <div className="container">
                                 <div className="row">
                                     <RadioButtonGroup name="diagnosis.class" title="Class" list={this.classList()} onChange={this.classChange} />
