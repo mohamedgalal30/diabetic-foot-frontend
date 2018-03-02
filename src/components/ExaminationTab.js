@@ -9,12 +9,6 @@ const TABS = {
 }
 
 class ExaminationTab extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         tab: TABS.NeurologicalAssessment
-    //     };
-    // }
 
     changeTab(tab) {
         this.props.changeTab(tab)
@@ -45,19 +39,17 @@ class ExaminationTab extends React.Component {
 
 
         return (
-            <div className=" " id="tab2" >
-                <div className="row">
-                    <div className="col s12">
-                        <ul className="tabs" id="Slist">
-                            <li onClick={this.changeTab.bind(this, TABS.Inspection)} className="tab col "><a className={`tab col s4 ${tab == 9 ? 'active' : ""}`} title="Inspection">Inspection</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.Palpation)} className="tab col "><a className={`tab col s4 ${tab == 10 ? 'active' : ""}`} title="Past Foot History" >Palpation</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.NeurologicalAssessment)} className="tab col "><a className={`tab col s4 ${tab == 11 ? 'active' : ""}`} title="NeurologicalAssessment">NeurologicalAssessment</a></li>
-                        </ul>
-                        <div className=" " id="tab1">
-                            <div className="container">
-                                <div className="row">
-                                    {TabContent}
-                                </div>
+            <div className="row">
+                <div className="col s12">
+                    <ul className="nav nav-tabs" id="Slist">
+                        <li onClick={this.changeTab.bind(this, TABS.Inspection)} className={`tab col s4 ${tab == 9 ? 'active' : ""}`}><a  title="Inspection">Inspection</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.Palpation)} className={`tab col s4 ${tab == 10 ? 'active' : ""}`}><a  title="Past Foot History" >Palpation</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.NeurologicalAssessment)} className={`tab col s4 ${tab == 11 ? 'active' : ""}`}><a title="NeurologicalAssessment">NeurologicalAssessment</a></li>
+                    </ul>
+                    <div className=" ">
+                        <div className="container">
+                            <div className="row">
+                                {TabContent}
                             </div>
                         </div>
                     </div>

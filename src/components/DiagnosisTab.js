@@ -71,68 +71,77 @@ class InvestigationsTab extends React.Component {
             switch (this.state.stage) {
                 case "0":
                     StageDiv = <div>
-                        Stage0: Normal foot [Annual review with basic foot education]
-                </div>
+                        <h1>Stage0: Normal foot </h1>
+                        <h3>[Annual review with basic foot education]</h3>
+                    </div>
                     break;
                 case "1":
                     StageDiv = <div>
-                        Stage 1: High-risk foot —It is difficult to stratify the risk of ulceration within this group. Any patient with one or more of the following—neuropathy, ischaemia, deformity, callus, swelling—should be referred for education and podiatry, receiving 3-monthly or more frequent treatment.
-                </div>
+                        <h1>Stage 1: High-risk</h1>
+                        <h3>foot —It is difficult to stratify the risk of ulceration within this group.
+                            Any patient with one or more of the following—neuropathy, ischaemia, deformity, callus,
+                            swelling—should be referred for education and podiatry,
+                            receiving 3-monthly or more frequent treatment.
+                        </h3>
+                    </div>
                     break;
                 case "2":
                     StageDiv = <div>
-                        Stage 2: Ulcerated foot
-All of these components of multidisciplinary management are important in stage3:
-• Mechanical control
-• Wound control
-• Vascular control
-• Microbiological control
-• Metabolic control
-• Educational control.
-The aim is to heal ulcers within the first 6 weeks of their
-development.
-                </div>
+                        <h1>Stage 2: Ulcerated foot</h1>
+                        <h2>All of these components of multidisciplinary management are important in stage3:</h2>
+                        <h3>• Mechanical control</h3>
+                        <h3>• Wound control</h3>
+                        <h3>• Vascular control</h3>
+                        <h3>• Microbiological control</h3>
+                        <h3>• Metabolic control</h3>
+                        <h3>• Educational control.</h3>
+                        <h2>The aim is to heal ulcers within the first 6 weeks of their
+                        development.
+                        </h2>
+                    </div>
                     break;
                 case "3":
                     StageDiv = <div>
-                        Stage 3: Infected foot
-All of these components of multidisciplinary management are important in stage4:
-• Mechanical control
-• Wound control
-• Vascular control
-• Microbiological control
-• Metabolic control
-• Educational control
-                </div>
+                        <h1>Stage 3: Infected foot</h1>
+                        <h2>All of these components of multidisciplinary management are important in stage4:</h2>
+                        <h3>• Mechanical control</h3>
+                        <h3>• Wound control</h3>
+                        <h3>• Vascular control</h3>
+                        <h3>• Microbiological control</h3>
+                        <h3>• Metabolic control</h3>
+                        <h3>• Educational control</h3>
+                    </div>
                     break;
                 case "4":
                     StageDiv = <div>
-                        Stage 4: Necrotic foot
-All of these components of multidisciplinary management are important in stage3:
-• Mechanical control
-• Wound control
-• Vascular control
-• Microbiological control
-• Metabolic control
-• Educational control.
-	Techniques to treat necrosis
-• Outpatient debridement
-• Operative surgical debridement
-• Facilitated autoamputation
-• Larva therapy.
-                </div>
+                        <h1>Stage 4: Necrotic foot</h1>
+                        <h2>All of these components of multidisciplinary management are important in stage3:</h2>
+                        <h3>• Mechanical control</h3>
+                        <h3>• Wound control</h3>
+                        <h3>• Vascular control</h3>
+                        <h3>• Microbiological control</h3>
+                        <h3>• Metabolic control</h3>
+                        <h3>• Educational control.</h3>
+                        <h2>Techniques to treat necrosis</h2>
+                        <h3>• Outpatient debridement</h3>
+                        <h3>• Operative surgical debridement</h3>
+                        <h3>• Facilitated autoamputation</h3>
+                        <h3>• Larva therapy.</h3>
+                    </div>
                     break;
                 case "5":
                     StageDiv = <div>
-                        Stage 5: Unsalvageable foot.
-Rehabilitation
-The key for success in dealing with the stage 6 patient is
-careful follow-up. With good planning and follow-up
-care after a major amputation, the stump will heal but it is
-also important to ensure that it will remain intact.Healthcare professionals in the diabetic foot service should be
-aware of the presentation and management of problems
-with the amputated stump .
-                </div>
+                        <h1>Stage 5: Unsalvageable foot</h1>
+                        <h2>Rehabilitation</h2>
+                        <h3>
+                            The key for success in dealing with the stage 6 patient is
+                        careful follow-up. With good planning and follow-up
+                        care after a major amputation, the stump will heal but it is
+                        also important to ensure that it will remain intact.Healthcare professionals in the diabetic foot service should be
+                        aware of the presentation and management of problems
+                        with the amputated stump .
+                        </h3>
+                    </div>
                     break;
             }
             return StageDiv;
@@ -147,13 +156,17 @@ with the amputated stump .
                                     <RadioButtonGroup name="diagnosis.class" title="Class" list={this.classList()} onChange={this.classChange} />
                                     {
                                         this.state.showStage ?
-                                            <div>
-                                                <RadioButtonGroup name="diagnosis.stage" title="Stage" list={this.stageList()} onChange={this.stageChange} />
-                                                {
-                                                    this.state.stage ?
-                                                        < StageDiscription />
-                                                        : null
-                                                }
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <RadioButtonGroup name="diagnosis.stage" title="Stage" list={this.stageList()} onChange={this.stageChange} />
+                                                </div>
+                                                <div className="col-md-6">
+                                                    {
+                                                        this.state.stage ?
+                                                            < StageDiscription />
+                                                            : null
+                                                    }
+                                                </div>
                                             </div>
                                             : null
                                     }

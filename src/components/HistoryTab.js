@@ -74,24 +74,22 @@ class HistoryTab extends React.Component {
 
 
         return (
-            <div className=" "  >
-                <div className="row">
-                    <div className="col s12">
-                        <ul className="tabs" id="Slist">
-                            <li onClick={this.changeTab.bind(this, TABS.PInfo)} className="tab col "><a className={`tab col s4 ${tab == TABS.PInfo ? 'active' : ""}`} title="Patient Info">Patient Info</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PComp)} className="tab col "><a className={`tab col s4 ${tab == TABS.PComp ? 'active' : ""}`} title="Presenting Complaint">P.Comp</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PFH)} className="tab col "><a className={`tab col s4 ${tab == TABS.PFH ? 'active' : ""}`} title="Past Foot History" >PFH</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.DHist)} className="tab col "><a className={`tab col s4 ${tab == TABS.DHist ? 'active' : ""}`} title="Diabetic History">D.Hist</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PMH)} className="tab col "><a className={`tab col s4 ${tab == TABS.PMH ? 'active' : ""}`} title="Past Medical History">PMH</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.DrugHist)} className="tab col "><a className={`tab col s4 ${tab == TABS.DrugHist ? 'active' : ""}`} title="Drug History">Drug Hist</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.FHist)} className="tab col "><a className={`tab col s4 ${tab == TABS.FHist ? 'active' : ""}`} title="Family History">F.Hist</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.PsHist)} className="tab col "><a className={`tab col s4 ${tab == TABS.PsHist ? 'active' : ""}`} title="Psychosocial History">Ps.Hist</a></li>
-                        </ul>
-                        <div className=" " >
-                            <div className="container">
-                                <div className="row">
-                                    {TabContent}
-                                </div>
+            <div className="row">
+                <div className="col s12">
+                    <ul className="nav nav-tabs">
+                        <li onClick={this.changeTab.bind(this, TABS.PInfo)} className={`tab col s4 ${tab == TABS.PInfo ? 'active' : ""}`}><a title="Patient Info">Patient Info</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.PComp)} className={`tab col s4 ${tab == TABS.PComp ? 'active' : ""}`}><a title="Presenting Complaint">Presenting Complaint</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.PFH)} className={`tab col s4 ${tab == TABS.PFH ? 'active' : ""}`}><a title="Past Foot History" >Past Foot History</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.DHist)} className={`tab col s4 ${tab == TABS.DHist ? 'active' : ""}`}><a title="Diabetic History">Diabetic History</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.PMH)} className={`tab col s4 ${tab == TABS.PMH ? 'active' : ""}`}><a title="Past Medical History">Past Medical History</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.DrugHist)} className={`tab col s4 ${tab == TABS.DrugHist ? 'active' : ""}`}><a title="Drug History">Drug History</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.FHist)} className={`tab col s4 ${tab == TABS.FHist ? 'active' : ""}`}><a title="Family History">Family History</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.PsHist)} className={`tab col s4 ${tab == TABS.PsHist ? 'active' : ""}`}><a title="Psychosocial History">Psychosocial History</a></li>
+                    </ul>
+                    <div className="tab-cotent" >
+                        <div className="container">
+                            <div className="tab-pane">
+                                {TabContent}
                             </div>
                         </div>
                     </div>

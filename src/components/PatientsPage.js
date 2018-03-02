@@ -19,7 +19,7 @@ class PatientsPage extends React.Component {
       })
     })
   }
-  
+
   search(e) {
     window.getPatients(e.target.value, patients => {
       this.setState({
@@ -32,13 +32,17 @@ class PatientsPage extends React.Component {
     const patients = this.state.patients;
     // const patients = this.props.patients;
     return (
-      <div className="col-md-12">
-        <h1>Patients <Link to={'/patients/new'} className="btn btn-primary">+ Patient</Link></h1>
-        <div className="row">
-        <input  onChange={(e) => this.search(e)} name="history.presentingComplaint.skinBreakdown.value" />
-     </div>
-        <div className="row">
-          <PatientList patients={patients} />
+      <div className="container-fluid">
+        <div className="col-md-12">
+        <div className="pull-left">
+          <h1 className="text-left">Patients <Link to={'/patients/new'} className="btn btn-primary">+ Patient</Link></h1>
+          </div>
+          <div className="form-group">
+            <input className="form-control" onChange={(e) => this.search(e)} name="history.presentingComplaint.skinBreakdown.value" />
+          </div>
+          <div className="row">
+            <PatientList patients={patients} />
+          </div>
         </div>
       </div>
     );

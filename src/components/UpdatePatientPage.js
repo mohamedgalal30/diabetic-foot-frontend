@@ -1,5 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { Tabs, Tab } from 'react-bootstrap';
 import HistoryTab from './HistoryTab'
 import ExaminationTab from './ExaminationTab'
 import InvestigationsTab from './InvestigationsTab'
@@ -58,7 +59,7 @@ class UpdatePatientPage extends React.Component {
 
   nextTab() {
     let tab = this.state.tab;
-    if (tab < 8) this.setState({ tab: ++tab })
+    if (tab < 15) this.setState({ tab: ++tab })
   }
   prevTab() {
     let tab = this.state.tab;
@@ -139,14 +140,13 @@ class UpdatePatientPage extends React.Component {
     }
     return (
       <div>
-        <ul className="tabs z-depth-1 ">
+        <ul className="nav nav-tabs">
           <li className={`tab col s4 ${([1, 2, 3, 4, 5, 6, 7, 8].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 1)}><a title="History">History</a></li>
           <li className={`tab col s4 ${([9, 10, 11].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 9)} ><a title="Examination">Examination</a></li>
           <li className={`tab col s4 ${([12, 13, 14].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 12)} ><a title="Investigations">Investigations</a></li>
-          <li className={`tab col s4 ${([15].indexOf(tab) != -1)? 'active' : ""}`} onClick={this.changeTab.bind(this, 15)} ><a title="Diagnosis">Diagnosis</a></li>
+          <li className={`tab col s4 ${([15].indexOf(tab) != -1) ? 'active' : ""}`} onClick={this.changeTab.bind(this, 15)} ><a title="Diagnosis">Diagnosis</a></li>
         </ul>
         <div>
-          <h1>Patient Data</h1>
           {TabContent}
         </div>
         <hr />

@@ -10,11 +10,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Diabetic Foot</h1>
+        <header className="App-header navbar navbar-default">
+          <a className="navbar-brand pull-left">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">Diabetic Foot</h1>
+          </a>
+          <div className="navbar-right pull-right">
+            <Link to="/patients" className="btn btn-primary btn-lg">Patients List</Link>
+          </div>
         </header>
-        <Link to="/patients" className="btn btn-primary btn-lg">Patients List</Link>
+
 
         <Switch>
           <Route path="/" exact component={HomePage} />

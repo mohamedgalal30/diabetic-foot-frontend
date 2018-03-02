@@ -37,19 +37,17 @@ class InvestigationsTab extends React.Component {
 
 
         return (
-            <div className=" " id="tab2" >
-                <div className="row">
-                    <div className="col s12">
-                        <ul className="tabs" id="Slist">
-                            <li onClick={this.changeTab.bind(this, TABS.Main)} className="tab col "><a className={`tab col s4 ${tab == 9 ? 'active' : ""}`} title="Main">Main</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.Laboratory)} className="tab col "><a className={`tab col s4 ${tab == 10 ? 'active' : ""}`} title="Past Foot History" >Laboratory</a></li>
-                            <li onClick={this.changeTab.bind(this, TABS.Radiological)} className="tab col "><a className={`tab col s4 ${tab == 11 ? 'active' : ""}`} title="Radiological">Radiological</a></li>
-                        </ul>
-                        <div className=" " id="tab1">
-                            <div className="container">
-                                <div className="row">
-                                    {TabContent}
-                                </div>
+            <div className="row">
+                <div className="col s12">
+                    <ul className="nav nav-tabs">
+                        <li onClick={this.changeTab.bind(this, TABS.Main)} className={`tab col s4 ${tab == 12 ? 'active' : ""}`}><a title="Main">Main</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.Laboratory)} className={`tab col s4 ${tab == 13 ? 'active' : ""}`}><a title="Past Foot History" >Laboratory</a></li>
+                        <li onClick={this.changeTab.bind(this, TABS.Radiological)} className={`tab col s4 ${tab == 14 ? 'active' : ""}`}><a title="Radiological">Radiological</a></li>
+                    </ul>
+                    <div className=" ">
+                        <div className="container">
+                            <div className="row">
+                                {TabContent}
                             </div>
                         </div>
                     </div>

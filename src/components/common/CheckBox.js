@@ -1,22 +1,14 @@
-  import React from 'react';
-  import PropTypes  from 'prop-types';
-  
-class CheckBox extends React.Component {
-  render() {
-    return (
-     <div className="field">
-        <div>
-          <label>{this.props.title}</label>
-          <input type="checkbox" name={this.props.name} value={this.props.id} checked={this.props.checked} onChange={this.props.onChange}/>
-        </div>
-      </div>
-    );
-  }
-}
+import React from 'react';
 
-// CheckBox.propTypes = {
-//   item: PropTypes.object.isRequired, 
-//   handleChange: PropTypes.func.isRequired
-// };
+class CheckBox extends React.Component {
+	render() {
+		return (
+			<div className="custom-control custom-checkbox">
+				<input id={`custom-heck-${this.props.id}`} className="custom-control-input" checked={this.props.checked} onChange={this.props.onChange} name={this.props.name} type="checkbox" />
+				<label htmlFor={`custom-heck-${this.props.id}`} className="custom-control-label pull-left">{this.props.title}</label>
+			</div>
+		);
+	}
+}
 
 export default CheckBox;
